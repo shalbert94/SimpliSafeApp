@@ -43,6 +43,8 @@ dependencies {
 
     //Testing
     testImplementation "junit:junit:$VERSION_JUNIT"
-    androidTestImplementation "com.android.support.test:runner:$VERSION_TEST_RUNNER"
+    testImplementation "com.google.truth:truth:$VERSION_TRUTH"
+    androidTestImplementation "com.android.support.test:runner:$VERSION_TEST_SUPPORT_LIBRARY"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$VERSION_ESPRESSO_CORE"
+    androidTestImplementation "com.android.support.test:rules:$VERSION_TEST_SUPPORT_LIBRARY"
 }

@@ -33,18 +33,18 @@ class MainActivity : AppCompatActivity() {
                 GameStatus.NEXT_TURN -> {
                     viewModel.changePlayer()
 
-                    when (viewModel.currentPlayer) {
-                        MainViewModel.X -> binding.headline.text = getString(R.string.headline_current_player_X)
-                        MainViewModel.O -> binding.headline.text = getString(R.string.headline_current_player_O)
+                    when (viewModel.currentPlayer.get()) {
+                        TicTacToe.X -> binding.headline.text = getString(R.string.headline_current_player_X)
+                        TicTacToe.O -> binding.headline.text = getString(R.string.headline_current_player_O)
                     }
                 }
                 GameStatus.INVALID_CHOICE -> Toast.makeText(this,
                         getString(R.string.invalid_choice_error_message), Toast.LENGTH_SHORT).show()
                 GameStatus.TIE -> binding.headline.text = getString(R.string.headline_tie)
                 GameStatus.WIN -> {
-                    when (viewModel.currentPlayer) {
-                        MainViewModel.X -> binding.headline.text = getString(R.string.headline_winner_x)
-                        MainViewModel.O -> binding.headline.text = getString(R.string.headline_winner_o)
+                    when (viewModel.currentPlayer.get()) {
+                        TicTacToe.X -> binding.headline.text = getString(R.string.headline_winner_x)
+                        TicTacToe.O -> binding.headline.text = getString(R.string.headline_winner_o)
                     }
                 }
                 GameStatus.RESET -> binding.headline.text = getString(R.string.headline_current_player_X)

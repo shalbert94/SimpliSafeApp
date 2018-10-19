@@ -39,6 +39,7 @@ ext {
 
     //Testing
     VERSION_JUNIT = '4.12'
-    VERSION_TEST_RUNNER = '1.0.2'
+    VERSION_TEST_SUPPORT_LIBRARY = '1.0.2'
     VERSION_ESPRESSO_CORE = '3.0.2'
+    VERSION_TRUTH = '0.42'
 }
