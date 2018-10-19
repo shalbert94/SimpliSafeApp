@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--For activity_main-->
+    <dimen name="headline_padding">16dp</dimen>
+    <dimen name="new_game_padding">16dp</dimen>
+
+    <!--layout_board-->
+    <dimen name="square_width">80dp</dimen>
+    <dimen name="square_height">80dp</dimen>
+</resources>

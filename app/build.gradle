@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.shalomhalbert.popup.simplesafeapp"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        dataBinding {
+            enabled = true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //Kotlin
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //Support library
+    implementation "com.android.support:appcompat-v7:$VERSION_SUPPORT_LIBRARY"
+    implementation "com.android.support:recyclerview-v7:$VERSION_SUPPORT_LIBRARY"
+
+    //Constraint layout
+    implementation "com.android.support.constraint:constraint-layout:$VERSION_CONSTRAINT_LAYOUT"
+
+    //ViewModel & LiveData
+    implementation "android.arch.lifecycle:extensions:$VERSION_LIFECYCLE_EXTS"
+
+    //Testing
+    testImplementation "junit:junit:$VERSION_JUNIT"
+    androidTestImplementation "com.android.support.test:runner:$VERSION_TEST_RUNNER"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$VERSION_ESPRESSO_CORE"
+}

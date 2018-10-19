@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.databinding.ObservableList" />
+
+        <variable
+            name="vm"
+            type="com.shalomhalbert.popup.simplesafeapp.MainViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!--4X4 Table Layout-->
+        <TableLayout
+            android:id="@+id/glGameBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:columnCount="4"
+            android:rowCount="4">
+
+            <!--Row 1-->
+            <TableRow>
+
+                <Button
+                    android:id="@+id/s00"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(0, 0)}"
+                    android:text="@{vm.board[0][0]}" />
+
+                <Button
+                    android:id="@+id/s01"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(0, 1)}"
+                    android:text="@{vm.board[0][1]}" />
+
+                <Button
+                    android:id="@+id/s02"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(0, 2)}"
+                    android:text="@{vm.board[0][2]}" />
+
+                <Button
+                    android:id="@+id/s03"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(0, 3)}"
+                    android:text="@{vm.board[0][3]}" />
+
+            </TableRow>
+
+            <!--Row 2-->
+            <TableRow>
+
+                <Button
+                    android:id="@+id/s10"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(1, 0)}"
+                    android:text="@{vm.board[1][0]}" />
+
+                <Button
+                    android:id="@+id/s11"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(1, 1)}"
+                    android:text="@{vm.board[1][1]}" />
+
+                <Button
+                    android:id="@+id/s12"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(1, 2)}"
+                    android:text="@{vm.board[1][2]}" />
+
+                <Button
+                    android:id="@+id/s13"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(1, 3)}"
+                    android:text="@{vm.board[1][3]}" />
+
+            </TableRow>
+
+            <!--Row 3-->
+            <TableRow>
+
+                <Button
+                    android:id="@+id/s20"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(2, 0)}"
+                    android:text="@{vm.board[2][0]}" />
+
+                <Button
+                    android:id="@+id/s21"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(2, 1)}"
+                    android:text="@{vm.board[2][1]}" />
+
+                <Button
+                    android:id="@+id/s22"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(2, 2)}"
+                    android:text="@{vm.board[2][2]}" />
+
+                <Button
+                    android:id="@+id/s23"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(2, 3)}"
+                    android:text="@{vm.board[2][3]}" />
+
+            </TableRow>
+
+            <!--Row 4-->
+            <TableRow>
+
+                <Button
+                    android:id="@+id/s30"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(3, 0)}"
+                    android:text="@{vm.board[3][0]}" />
+
+                <Button
+                    android:id="@+id/s31"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(3, 1)}"
+                    android:text="@{vm.board[3][1]}" />
+
+                <Button
+                    android:id="@+id/s32"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(3, 2)}"
+                    android:text="@{vm.board[3][2]}" />
+
+                <Button
+                    android:id="@+id/s33"
+                    style="@style/Square"
+                    android:onClick="@{(view) -> vm.insertSymbol(3, 3)}"
+                    android:text="@{vm.board[3][3]}" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+</layout>

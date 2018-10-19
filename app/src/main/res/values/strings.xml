@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">SimpleSafeApp</string>
+
+    <!--Headlines-->
+    <string name="headline_current_player_X">Current Player: X</string>
+    <string name="headline_current_player_O">Current Player: O</string>
+    <string name="headline_tie">Tie!</string>
+    <string name="headline_winner_x">X wins!</string>
+    <string name="headline_winner_o">O wins!</string>
+
+    <!--Button text-->
+    <string name="new_game">NEW GAME</string>
+
+    <!--Toast-->
+    <string name="invalid_choice_error_message">Please select a square that wasn\'t selected</string>
+
+</resources>
