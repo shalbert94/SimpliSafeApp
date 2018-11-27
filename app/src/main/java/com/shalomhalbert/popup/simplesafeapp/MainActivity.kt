@@ -11,44 +11,15 @@ import com.shalomhalbert.popup.simplesafeapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        const val BOARD_SIZE = 16
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
-        binding.newGameButton.setOnClickListener { viewModel.resetBoard() }
         binding.table.vm = viewModel
-
-        subscribeToObserver(viewModel, binding)
+        binding.vm = viewModel
     }
 
-    private fun subscribeToObserver(viewModel: MainViewModel, binding: ActivityMainBinding) {
-        viewModel.gameStatus.observe(this, Observer {
-            when (it) {
-                GameStatus.NEXT_TURN -> {
-                    viewModel.changePlayer()
-
-                    when (viewModel.currentPlayer.get()) {
-                        TicTacToe.X -> binding.headline.text = getString(R.string.headline_current_player_X)
-                        TicTacToe.O -> binding.headline.text = getString(R.string.headline_current_player_O)
-                    }
-                }
-                GameStatus.INVALID_CHOICE -> Toast.makeText(this,
-                        getString(R.string.invalid_choice_error_message), Toast.LENGTH_SHORT).show()
-                GameStatus.TIE -> binding.headline.text = getString(R.string.headline_tie)
-                GameStatus.WIN -> {
-                    when (viewModel.currentPlayer.get()) {
-                        TicTacToe.X -> binding.headline.text = getString(R.string.headline_winner_x)
-                        TicTacToe.O -> binding.headline.text = getString(R.string.headline_winner_o)
-                    }
-                }
-                GameStatus.RESET -> binding.headline.text = getString(R.string.headline_current_player_X)
-            }
-        })
-    }
 }

@@ -3,6 +3,8 @@ package com.shalomhalbert.popup.simplesafeapp
 import android.arch.lifecycle.MutableLiveData
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableField
+import android.databinding.ObservableInt
+import android.widget.Toast
 
 /**
  * Represents the TicTacToe game
@@ -15,7 +17,7 @@ class TicTacToe(private val sideLength: Int) {
     }
 
     private var moves = 0
-    val gameStatus = MutableLiveData<GameStatus>()
+    val headline = ObservableInt(R.string.headline_current_player_X)
     var currentPlayer = ObservableField<String>(X)
     val board = ObservableArrayList<ObservableArrayList<String>>().apply {
         repeat(sideLength) {
@@ -34,21 +36,17 @@ class TicTacToe(private val sideLength: Int) {
         }
         currentPlayer.set(X)
         moves = 0
-        gameStatus.postValue(GameStatus.RESET)
+        setHeadline(GameStatus.RESET)
     }
 
     fun insertSymbol(row: Int, col: Int) {
-        if (board[row][col] != BLANK) {
-            gameStatus.postValue(GameStatus.INVALID_CHOICE)
-        } else {
-            board[row][col] = currentPlayer.get()
-            when {
-                hasWon(row, col) -> gameStatus.postValue(GameStatus.WIN) //Update headline
-                ++moves == 16 -> gameStatus.postValue(GameStatus.TIE) //Update headline
-                else -> {
-                    gameStatus.postValue(GameStatus.NEXT_TURN)
-                } //Change turns & call changePlayer()
-            }
+        if (board[row][col] != BLANK) return
+
+        board[row][col] = currentPlayer.get()
+        when {
+            hasWon(row, col) -> setHeadline(GameStatus.WIN) //Update headline
+            ++moves == 16 -> setHeadline(GameStatus.TIE) //Update headline
+            else -> setHeadline(GameStatus.NEXT_TURN) //Change turns & call changePlayer()
         }
     }
 
@@ -152,5 +150,25 @@ class TicTacToe(private val sideLength: Int) {
             }
         }
         return false
+    }
+
+    private fun setHeadline(status: GameStatus) {
+        when (status) {
+            GameStatus.NEXT_TURN -> {
+                changePlayer()
+                when (currentPlayer.get()) {
+                    TicTacToe.X -> headline.set(R.string.headline_current_player_X)
+                    TicTacToe.O -> headline.set(R.string.headline_current_player_O)
+                }
+            }
+            GameStatus.TIE -> headline.set(R.string.headline_tie)
+            GameStatus.WIN -> {
+                when (currentPlayer.get()) {
+                    TicTacToe.X -> headline.set(R.string.headline_winner_x)
+                    TicTacToe.O -> headline.set(R.string.headline_winner_o)
+                }
+            }
+            GameStatus.RESET -> headline.set(R.string.headline_current_player_X)
+        }
     }
 }
