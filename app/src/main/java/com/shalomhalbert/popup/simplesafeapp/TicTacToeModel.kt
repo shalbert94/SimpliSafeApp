@@ -1,10 +1,8 @@
 package com.shalomhalbert.popup.simplesafeapp
 
-import android.arch.lifecycle.MutableLiveData
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableField
 import android.databinding.ObservableInt
-import android.widget.Toast
 
 /**
  * Represents the TicTacToe game
