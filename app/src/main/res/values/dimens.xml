@@ -7,4 +7,7 @@
     <!--layout_board-->
     <dimen name="square_width">80dp</dimen>
     <dimen name="square_height">80dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">44dp</dimen>
 </resources>

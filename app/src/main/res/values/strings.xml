@@ -15,4 +15,7 @@
     <!--Toast-->
     <string name="invalid_choice_error_message">Please select a square that wasn\'t selected</string>
 
+    <string name="winner">Winner</string>
+    <string name="action_reset">Reset</string>
+
 </resources>
