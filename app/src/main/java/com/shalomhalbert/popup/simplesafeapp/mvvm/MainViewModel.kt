@@ -1,16 +1,12 @@
-package com.shalomhalbert.popup.simplesafeapp
+package com.shalomhalbert.popup.simplesafeapp.mvvm
 
-import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.databinding.Observable
 import android.databinding.ObservableArrayList
-import android.databinding.ObservableField
 import android.databinding.ObservableInt
-import android.support.annotation.VisibleForTesting
-import org.jetbrains.annotations.TestOnly
+import com.shalomhalbert.popup.simplesafeapp.TicTacToeModel
 
 /**
- * ViewModel for a TicTacToe board of any size
+ * ViewModel for a TicTacToeModel board of any size
  */
 class MainViewModel : ViewModel() {
 
@@ -18,19 +14,19 @@ class MainViewModel : ViewModel() {
         const val BOARD_SIZE = 16
     }
 
-    private val ticTacToe: TicTacToe
+    private val ticTacToeModel: TicTacToeModel
     val headline: ObservableInt
     val board: ObservableArrayList<ObservableArrayList<String>>
 
     init {
         val sideLength = Math.sqrt(BOARD_SIZE.toDouble()).toInt()
-        ticTacToe = TicTacToe(sideLength)
+        ticTacToeModel = TicTacToeModel(sideLength)
 
-        headline = ticTacToe.headline
-        board = ticTacToe.board
+        headline = ticTacToeModel.headline
+        board = ticTacToeModel.board
     }
 
-    fun resetBoard() = ticTacToe.resetBoard()
+    fun resetBoard() = ticTacToeModel.resetBoard()
 
-    fun insertSymbol(row: Int, col: Int) = ticTacToe.insertSymbol(row, col)
+    fun insertSymbol(row: Int, col: Int) = ticTacToeModel.insertSymbol(row, col)
 }

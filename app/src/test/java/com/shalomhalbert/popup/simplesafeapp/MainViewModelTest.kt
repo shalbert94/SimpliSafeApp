@@ -1,7 +1,7 @@
 package com.shalomhalbert.popup.simplesafeapp
 
-import android.arch.lifecycle.ViewModel
 import com.google.common.truth.Truth.assertThat
+import com.shalomhalbert.popup.simplesafeapp.mvvm.MainViewModel
 import org.junit.Test
 
 class MainViewModelTest {
@@ -61,11 +61,11 @@ class MainViewModelTest {
         mainViewModel.insertSymbol(1,0)
         mainViewModel.insertSymbol(0,3)
         //Then
-        assertThat(mainViewModel.board[0][0]).isSameAs(TicTacToe.X)
-        assertThat(mainViewModel.board[1][0]).isSameAs(TicTacToe.O)
-        assertThat(mainViewModel.board[0][3]).isSameAs(TicTacToe.X)
-        assertThat(mainViewModel.board[3][0]).isSameAs(TicTacToe.BLANK)
-        assertThat(mainViewModel.board[0][2]).isSameAs(TicTacToe.BLANK)
+        assertThat(mainViewModel.board[0][0]).isSameAs(TicTacToeModel.X)
+        assertThat(mainViewModel.board[1][0]).isSameAs(TicTacToeModel.O)
+        assertThat(mainViewModel.board[0][3]).isSameAs(TicTacToeModel.X)
+        assertThat(mainViewModel.board[3][0]).isSameAs(TicTacToeModel.BLANK)
+        assertThat(mainViewModel.board[0][2]).isSameAs(TicTacToeModel.BLANK)
     }
 
 }

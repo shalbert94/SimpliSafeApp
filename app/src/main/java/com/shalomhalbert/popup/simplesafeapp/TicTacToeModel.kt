@@ -5,9 +5,9 @@ import android.databinding.ObservableField
 import android.databinding.ObservableInt
 
 /**
- * Represents the TicTacToe game
+ * Represents the TicTacToeModel game
  */
-class TicTacToe(private val sideLength: Int) {
+class TicTacToeModel(private val sideLength: Int) {
     companion object {
         const val BLANK = ""
         const val X = "X"
@@ -155,15 +155,15 @@ class TicTacToe(private val sideLength: Int) {
             GameStatus.NEXT_TURN -> {
                 changePlayer()
                 when (currentPlayer.get()) {
-                    TicTacToe.X -> headline.set(R.string.headline_current_player_X)
-                    TicTacToe.O -> headline.set(R.string.headline_current_player_O)
+                    TicTacToeModel.X -> headline.set(R.string.headline_current_player_X)
+                    TicTacToeModel.O -> headline.set(R.string.headline_current_player_O)
                 }
             }
             GameStatus.TIE -> headline.set(R.string.headline_tie)
             GameStatus.WIN -> {
                 when (currentPlayer.get()) {
-                    TicTacToe.X -> headline.set(R.string.headline_winner_x)
-                    TicTacToe.O -> headline.set(R.string.headline_winner_o)
+                    TicTacToeModel.X -> headline.set(R.string.headline_winner_x)
+                    TicTacToeModel.O -> headline.set(R.string.headline_winner_o)
                 }
             }
             GameStatus.RESET -> headline.set(R.string.headline_current_player_X)
