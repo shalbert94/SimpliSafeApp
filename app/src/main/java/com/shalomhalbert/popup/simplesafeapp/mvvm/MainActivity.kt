@@ -1,22 +1,20 @@
-package com.shalomhalbert.popup.simplesafeapp
+package com.shalomhalbert.popup.simplesafeapp.mvvm
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.support.v7.app.AppCompatActivity
+import com.shalomhalbert.popup.simplesafeapp.R
 import com.shalomhalbert.popup.simplesafeapp.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main_mvvm)
 
         val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main_mvvm)
 
         binding.table.vm = viewModel
         binding.vm = viewModel
