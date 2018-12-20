@@ -7,13 +7,13 @@
     <data>
         <variable
             name="vm"
-            type="com.shalomhalbert.popup.simplesafeapp.MainViewModel" />
+            type="com.shalomhalbert.popup.simplesafeapp.mvvm.MainViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".mvvm.MainActivity">
 
         <TextView
             android:id="@+id/headline"
@@ -31,7 +31,7 @@
 
         <include
             android:id="@+id/table"
-            layout="@layout/layout_board"
+            layout="@layout/layout_board_mvvm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"

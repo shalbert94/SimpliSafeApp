@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Layout for TicTacToe board-->
+<!--Layout for TicTacToeModel board-->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -8,7 +8,7 @@
 
         <variable
             name="vm"
-            type="com.shalomhalbert.popup.simplesafeapp.MainViewModel" />
+            type="com.shalomhalbert.popup.simplesafeapp.mvvm.MainViewModel" />
     </data>
 
     <RelativeLayout
@@ -27,6 +27,7 @@
             <!--Row 1-->
             <TableRow>
 
+                <!--Todo: Implement two-way binding-->
                 <Button
                     android:id="@+id/s00"
                     style="@style/Square"
