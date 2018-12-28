@@ -33,20 +33,3 @@ interface TicTacToeContracts {
         fun changeScreen()
     }
 }
-
-//{
-//    interface View {
-//        fun clearBoard()
-//        fun setHeadline()
-//        fun selectSquare(button: Button, row: Int, col: Int)
-//    }
-//
-//    interface Presenter {
-//        fun onNewGameClicked()
-//        fun onSquareSelected()
-//    }
-//
-//    interface Interactor {
-//
-//    }
-//}
